@@ -4,15 +4,15 @@ num = int(input('Введите количество критериев: '))
 while num <= 0:
     print('Ошибка!!!')
     num = int(input('Введите количество критериев: '))
-#Создал матрицу для записи коэффициентами сравнения
+#Создал матрицу для записи коэффициентов сравнения
 matrix = np.eye(num)
 a = 1
 for i in range(a, num+1):
     for j in range(a+1, num+1):
-        matrix[i-1][j-1] = round(float(input('Введите сравнение К{0}-К{1}:'.format(i, j))), 3)
+        matrix[i-1][j-1] = round(float(input('Введите коэффициент сравнения К{0}-К{1}:'.format(i, j))), 3)
         while int(matrix[i-1][j-1]) <= 0 or matrix[i-1][j-1] >= 10:
             print('Ошибка!!!')
-            matrix[i - 1][j - 1] = round(float(input('Введите сравнение К{0}-К{1}:'.format(i, j))), 3)
+            matrix[i - 1][j - 1] = round(float(input('Введите коэффициент сравнения К{0}-К{1}:'.format(i, j))), 3)
         matrix[j-1][i-1] = round(matrix[i - 1][j - 1] ** (-1), 2)
     a += 1
 # Создаём список сумм строки
